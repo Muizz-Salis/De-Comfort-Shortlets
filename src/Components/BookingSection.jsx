@@ -17,6 +17,7 @@ const WHATSAPP_NUMBER = "8105949387"; // Example: use your country code without 
 
 export default function BookingSection() {
   const [nights, setNights] = useState(1);
+  const [inputValue, setInputValue] = useState("1"); // Separate state for the input field
   const [selectedRoomId, setSelectedRoomId] = useState(roomTypes[0].id);
   const [isMounted, setIsMounted] = useState(false);
 
@@ -30,8 +31,33 @@ export default function BookingSection() {
     return selectedRoom.pricePerNight * nights;
   }, [nights, selectedRoom]);
 
+  // Handle input change to allow empty field temporarily
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setInputValue(value);
+    
+    // If the value is not empty, update nights
+    if (value !== "") {
+      const numValue = parseInt(value);
+      if (!isNaN(numValue) && numValue >= 1) {
+        setNights(numValue);
+      }
+    }
+  };
+  
+  // Handle blur event to enforce minimum value
+  const handleInputBlur = () => {
+    if (inputValue === "" || parseInt(inputValue) < 1 || isNaN(parseInt(inputValue))) {
+      setInputValue("1");
+      setNights(1);
+    }
+  };
+
   const handleBooking = () => {
     if (!selectedRoom) return;
+    
+    // Ensure nights value is valid before sending
+    handleInputBlur();
 
     const message = `Hello De-Comfort Shortlets,
 I would like to book a room.
@@ -109,18 +135,21 @@ I'm ready to proceed with the booking. Please confirm availability.`;
                   </Label>
                   <Input
                     id="nights"
-                    type="number"
-                    value={nights}
-                    onChange={(e) => setNights(Math.max(1, parseInt(e.target.value) || 1))}
-                    min="1"
+                    type="text"
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    onBlur={handleInputBlur}
+                    placeholder="1"
                     className="w-full h-12 border border-gray-300 rounded-md px-4 py-2 bg-white"
                     onKeyPress={(e) => {
                       if (e.key === 'Enter') {
                         e.preventDefault();
+                        handleInputBlur();
                         handleBooking();
                       }
                     }}
                   />
+                  <p className="text-xs text-gray-500 mt-1">Minimum stay: 1 night</p>
                 </div>
               </form>
             </CardContent>
