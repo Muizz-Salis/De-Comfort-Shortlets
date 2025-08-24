@@ -1,0 +1,22 @@
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.overflow-fix {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Fix carousel container */
+.embla {
+  overflow: hidden;
+  max-width: 100%;
+}
