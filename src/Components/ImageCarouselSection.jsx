@@ -10,11 +10,11 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 
 const apartments = [
-  { name: 'Elegant Living Room', price: 150, src: 'https://res.cloudinary.com/dmahzfixo/image/upload/v1755786040/dcomfort3_dgdi9d.jpg', hint: 'living room elegant' },
-  { name: 'Serene Master Bedroom', price: 250, src: 'https://res.cloudinary.com/dmahzfixo/image/upload/v1755786039/dcomfort1_fh6aac.jpg', hint: 'bedroom modern' },
-  { name: 'Gourmet Modern Kitchen', price: 150, src: 'https://res.cloudinary.com/dmahzfixo/image/upload/v1755786040/dcomfort2_ywqszz.jpg', hint: 'kitchen apartment' },
-  { name: 'Front View ', price: 500, src: 'https://res.cloudinary.com/dmahzfixo/image/upload/v1755786042/dcomfort5_d4g4vo.jpg', hint: 'apartment balcony' },
-  { name: 'Cozy Guest Bedroom', price: 200, src: 'https://res.cloudinary.com/dmahzfixo/image/upload/v1755786040/dcomfort4_jkwtjt.jpg', hint: 'bedroom cozy' },
+  { name: 'Elegant Living Room', src: 'https://res.cloudinary.com/dmahzfixo/image/upload/v1755786040/dcomfort3_dgdi9d.jpg', hint: 'living room elegant' },
+  { name: 'Serene Master Bedroom', src: 'https://res.cloudinary.com/dmahzfixo/image/upload/v1755786039/dcomfort1_fh6aac.jpg', hint: 'bedroom modern' },
+  { name: 'Gourmet Modern Kitchen', src: 'https://res.cloudinary.com/dmahzfixo/image/upload/v1755786040/dcomfort2_ywqszz.jpg', hint: 'kitchen apartment' },
+  { name: 'Front View ', src: 'https://res.cloudinary.com/dmahzfixo/image/upload/v1755786042/dcomfort5_d4g4vo.jpg', hint: 'apartment balcony' },
+  { name: 'Cozy Guest Bedroom', src: 'https://res.cloudinary.com/dmahzfixo/image/upload/v1755786040/dcomfort4_jkwtjt.jpg', hint: 'bedroom cozy' },
 ];
 
 function ImageCarouselSection() {
