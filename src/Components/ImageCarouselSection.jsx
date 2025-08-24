@@ -49,7 +49,7 @@ function ImageCarouselSection() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                       <div className="absolute bottom-0 left-0 p-6 text-white">
                         <h3 className="text-xl font-bold">{apartment.name}</h3>
-                        <p className="text-lg font-semibold text-accent">${apartment.price}<span className="text-sm font-normal text-white/80">/night</span></p>
+                        {/* <p className="text-lg font-semibold text-accent">${apartment.price}<span className="text-sm font-normal text-white/80">/night</span></p> */}
                       </div>
                     </CardContent>
                   </Card>
