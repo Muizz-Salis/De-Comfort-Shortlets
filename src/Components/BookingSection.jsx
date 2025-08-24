@@ -8,8 +8,8 @@ import { BedDouble, Moon, Wallet } from 'lucide-react';
 
 const roomTypes = [
   { id: 'standard', name: 'Standard Room', pricePerNight: 120000 },
-  { id: 'deluxe', name: 'Deluxe Suite', pricePerNight: 250 },
-  { id: 'presidential', name: 'Presidential Suite', pricePerNight: 500 },
+  { id: 'deluxe', name: 'Deluxe Suite', pricePerNight: 250000 },
+  { id: 'presidential', name: 'Presidential Suite', pricePerNight: 500000 },
 ];
 
 // IMPORTANT: Replace with your own WhatsApp number
