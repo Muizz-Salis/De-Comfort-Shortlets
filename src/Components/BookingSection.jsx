@@ -13,7 +13,7 @@ const roomTypes = [
 ];
 
 // IMPORTANT: Replace with your own WhatsApp number
-const WHATSAPP_NUMBER = "2348105949387"; // Example: use your country code without '+' or '00'
+const WHATSAPP_NUMBER = "2348137736148"; // Example: use your country code without '+' or '00'
 
 export default function BookingSection() {
   const [nights, setNights] = useState(1);
