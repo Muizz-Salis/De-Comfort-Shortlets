@@ -38,7 +38,7 @@ export default function Header() {
 
   return (
     <header className={cn(
-      'sticky top-0 z-50 w-full transition-all duration-300',
+      'fixed top-0 z-50 w-full transition-all duration-300',
       scrolled ? 'text-white shadow-md backdrop-blur-sm' : 'text-white'
     )} style={{backgroundColor: scrolled ? '#188b8b' + 'E6' : '#188b8b'}}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
