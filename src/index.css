@@ -12,3 +12,19 @@
 html.body-lock-active, body.body-lock-active { 
   overscroll-behavior: contain;
 }
+
+/* New unified scroll lock applied to html & body */
+html.scroll-lock, body.scroll-lock { 
+  overflow: hidden !important; 
+  height: 100%;
+  overscroll-behavior: none;
+  touch-action: none; /* Prevent iOS rubber band */
+}
+
+/* Overlay helper to ensure full height on iOS dynamic viewport */
+.mobile-menu-overlay { 
+  min-height: 100vh; /* fallback */
+  min-height: 100dvh; /* modern browsers dynamic viewport */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
+}

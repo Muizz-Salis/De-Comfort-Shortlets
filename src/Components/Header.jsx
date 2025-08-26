@@ -1,4 +1,3 @@
-'use client';
 
 import { useState, useEffect } from 'react';
 import Button from './ui/button.jsx';
@@ -11,48 +10,20 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Robust body scroll lock: capture scroll position and freeze layout while menu open
+  // Simplified class-based scroll lock (more stable on iOS)
   useEffect(() => {
+    const html = document.documentElement;
     const body = document.body;
     if (isMobileMenuOpen) {
-      const scrollY = window.scrollY;
-      body.dataset.scrollLockY = String(scrollY);
-      body.style.position = 'fixed';
-      body.style.top = `-${scrollY}px`;
-      body.style.left = '0';
-      body.style.right = '0';
-      body.style.width = '100%';
-      body.classList.add('body-no-scroll','body-lock-active');
+      html.classList.add('scroll-lock');
+      body.classList.add('scroll-lock');
     } else {
-      if (body.style.position === 'fixed') {
-        const storedY = body.dataset.scrollLockY ? parseInt(body.dataset.scrollLockY, 10) : 0;
-        body.style.position = '';
-        body.style.top = '';
-        body.style.left = '';
-        body.style.right = '';
-        body.style.width = '';
-        body.classList.remove('body-no-scroll','body-lock-active');
-        window.scrollTo(0, storedY);
-        delete body.dataset.scrollLockY;
-      } else {
-        body.classList.remove('body-no-scroll','body-lock-active');
-      }
+      html.classList.remove('scroll-lock');
+      body.classList.remove('scroll-lock');
     }
     return () => {
-      // On unmount ensure cleanup
-      if (body.style.position === 'fixed') {
-        const storedY = body.dataset.scrollLockY ? parseInt(body.dataset.scrollLockY, 10) : 0;
-        body.style.position = '';
-        body.style.top = '';
-        body.style.left = '';
-        body.style.right = '';
-        body.style.width = '';
-        body.classList.remove('body-no-scroll','body-lock-active');
-        window.scrollTo(0, storedY);
-        delete body.dataset.scrollLockY;
-      } else {
-        body.classList.remove('body-no-scroll','body-lock-active');
-      }
+      html.classList.remove('scroll-lock');
+      body.classList.remove('scroll-lock');
     };
   }, [isMobileMenuOpen]);
 
@@ -115,7 +86,7 @@ export default function Header() {
           </Button>
           
           {isMobileMenuOpen && (
-            <div className="fixed inset-0 z-[60] flex flex-col text-white bg-[#188b8b]">
+            <div className="fixed inset-0 z-[60] flex flex-col text-white bg-[#188b8b] mobile-menu-overlay">
               <div className="flex h-20 items-center justify-between px-6 shrink-0">
                 <a href="/" className="font-headline text-2xl font-bold" onClick={() => setIsMobileMenuOpen(false)}>
                   De-Comfort Shortlets
