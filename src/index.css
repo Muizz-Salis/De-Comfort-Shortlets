@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+.body-no-scroll {
+  /* Prevent scrolling */
+  overflow: hidden;
+  height: 100vh;
+  /* iOS Safari fix */
+  position: relative;
+}
+
+/* When we apply body-lock using inline styles we still want smooth scroll restoration */
+html.body-lock-active, body.body-lock-active { 
+  overscroll-behavior: contain;
+}
